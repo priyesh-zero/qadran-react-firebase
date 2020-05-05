@@ -93,7 +93,7 @@ const Auth = () => {
                 <div className={classes.welcomePanel}>
                     <div className={classes.welcomeTextContainer}>
                         <Typography variant={mobile ? "h5" : "h3"} className="font-light">
-                            {mobile ? "Qadran" : get(lang, "WELCOME_TITLE", "")}
+                            {get(lang, "WELCOME_TITLE", "")}
                         </Typography>
                         {!mobile ? (
                             <Box mt={3} mb={2}>
