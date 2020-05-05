@@ -64,7 +64,7 @@ const appReducer = (state = initState, action) => {
                 lawyerProfileModal: action.value
             };
         case "SET_DRAWER_ITEMS":
-            console.log("set drawer items", action.value);
+            //console.log("set drawer items", action.value);
             return {
                 ...state,
                 drawerItems: action.value

@@ -7,6 +7,8 @@ import Section from "../UI/Section";
 
 import languages from "../../languages";
 
+const { isUndefined } = require("lodash");
+
 const useStyles = makeStyles((theme) => ({}));
 
 function Calendar() {
@@ -25,15 +27,27 @@ function Calendar() {
         []
     );
 
+    const sectorsQuery = useMemo(
+        () => ({
+            collection: "Matters",
+            storeAs: "Sectors",
+        }),
+        []
+    );
+
     useFirestoreConnect(lawyersQuery);
+    useFirestoreConnect(sectorsQuery);
 
     const lawyersList = useSelector((state) => state.firestore.ordered.Lawyers);
+    const sectorsList = useSelector((state) => state.firestore.ordered.Sectors);
+    let loading = false;
+    if (isUndefined(lawyersList) || isUndefined(sectorsList)) {
+        loading = true;
+    }
 
-    console.log(lawyersList);
-    
-    return <Section>
-        Lawyers list view
-    </Section>;
+    console.log(lawyersList, sectorsList, loading);
+
+    return <Section>Lawyers view</Section>;
 }
 
 export default Calendar;
