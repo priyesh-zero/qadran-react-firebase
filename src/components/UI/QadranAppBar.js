@@ -117,7 +117,6 @@ const QadranAppBar = ({ isFull }) => {
     );
     color = openView ? openView.color : "#1B2A50";
     title = openView ? openView.title : "";
-    console.log(title);
 
     const classes = useStyles({ width, color });
 

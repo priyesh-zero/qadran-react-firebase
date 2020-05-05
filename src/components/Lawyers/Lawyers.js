@@ -9,8 +9,6 @@ import languages from "../../languages";
 
 const useStyles = makeStyles((theme) => ({}));
 
-const populates = [{ child: "user", root: "Users" }];
-
 function Calendar() {
     const classes = useStyles();
     const auth = useSelector((state) => state.firebase.auth);
@@ -23,7 +21,6 @@ function Calendar() {
             collection: "Users",
             where: ["type", "==", "lawyer"],
             storeAs: "Lawyers",
-            populates,
         }),
         []
     );
@@ -32,6 +29,8 @@ function Calendar() {
 
     const lawyersList = useSelector((state) => state.firestore.ordered.Lawyers);
 
+    console.log(lawyersList);
+    
     return <Section>
         Lawyers list view
     </Section>;
